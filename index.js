@@ -1,6 +1,8 @@
+// Node builtin function to include modules. Inquirer module to creates an user interface on the command line. fs is a file system.
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+// Questions that will be displayed to the user.
 inquirer
     .prompt([
         {
@@ -50,15 +52,16 @@ inquirer
             message: "What does the user need to know about contributing to the repo?",
         },
     ])
+    // Promise returned by the prompts.
     .then(res => {
-        
-        const licenseType = res.license.split(" ").join("");
-
+        // Take the license chose by user and replace any space by %20 to be added to the URL that will display the badge.
+        const licenseType = res.license.split(" ").join("%20");
+        // If None has been selected as a license then the message "No license listed." will be added to the license section, else it will display the license statement.
         let licenseText = res.license === "None" ? "No license listed."
         : `This project is licensed under the terms of the ${res.license} license.`;
-        
+        // const newReadMe builts the README with the provided responses by the user.
         const newReadMe =
-`![License](https://img.shields.io/static/v1?label=License&message=${licenseType}&color=blue)
+`![License](https://img.shields.io/badge/license-${licenseType}-blue)
 # ${res.projectName}
 
 ## Description
@@ -109,8 +112,8 @@ ${"```"}
 
 If you have any questions about the repo, open an issue or contact me directly at ${res.email}. You can find more of my work at [${res.github}](https://github.com/${res.github})
 `
-
+        // Take the project name, make it lower case, take the spaces away, and add the file extension to be used as the new file name.
         const fileName = `${res.projectName.toLowerCase().split(" ").join("")}.md`;
-
+        // Use fs module to create a new file with the fileName created above, and the README created at the const newReadMe as a content to this file.
         fs.writeFile(fileName, newReadMe, err => {err ? console.log(err) : console.log("Your ReadMe has been created.")})
     })
