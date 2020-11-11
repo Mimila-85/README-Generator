@@ -52,11 +52,13 @@ inquirer
     ])
     .then(res => {
         
-        let licenseType = res.license === "None" ? "No license listed."
+        const licenseType = res.license.split(" ").join("");
+
+        let licenseText = res.license === "None" ? "No license listed."
         : `This project is licensed under the terms of the ${res.license} license.`;
         
         const newReadMe =
-`[![License](https://img.shields.io/badge/license-${res.license}-blue.svg)]
+`![License](https://img.shields.io/static/v1?label=License&message=${licenseType}&color=blue)
 # ${res.projectName}
 
 ## Description
@@ -90,7 +92,7 @@ ${res.usage}
 
 ## License
 
-${licenseType}
+${licenseText}
 
 ## Contributing
 
