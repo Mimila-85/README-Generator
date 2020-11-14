@@ -30,7 +30,7 @@ npm i inquirer
 
 To start, run on your command line `node index.js`, this will prompt a series of questions that will be used to build your ` README `. The title of your project is going to be used as your ` README` file name, as well as the title of the `README`. You are going to be requested to enter your application description, installation instructions, usage, license, contribution information, tests and contact information as GitHub username and email. There are five options of license to choose from `MIT, APACHE 2.0, GPL 3.0, BSD 3 or None`, you can use your keyboard arrows to chose one, then press enter. This `README` has been created using this application. Click on the gif below to watch a video showing this creation. 
 
-![ReadMe Demo](https://github.com/Mimila-85/README-Generator/blob/master/assets/images/readMeDemo.gif)](https://youtu.be/a96_-C-wxhA)
+[![ReadMe Demo](https://github.com/Mimila-85/README-Generator/blob/master/assets/images/readMeDemo.gif)](https://youtu.be/a96_-C-wxhA)
 
 ## License
 
