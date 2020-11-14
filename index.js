@@ -110,10 +110,8 @@ ${"```"}
 
 ## Questions
 
-If you have any questions about the repo, open an issue or contact me directly at ${res.email}. You can find more of my work at [${res.github}](https://github.com/${res.github})
+If you have any questions about the repo, open an issue or contact me directly at ${res.email}. You can find more of my work at [${res.github}](https://github.com/${res.github}).
 `
-        // Take the project name, make it lower case, take the spaces away, and add the file extension to be used as the new file name.
-        const fileName = `${res.projectName.toLowerCase().split(" ").join("")}.md`;
         // Use fs module to create a new file with the fileName created above, and the README created at the const newReadMe as a content to this file.
-        fs.writeFile(fileName, newReadMe, err => {err ? console.log(err) : console.log("Your ReadMe has been created.")})
+        fs.writeFile("README.md", newReadMe, err => {err ? console.log(err) : console.log("Your ReadMe has been created.")})
     })
