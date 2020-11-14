@@ -112,6 +112,6 @@ ${"```"}
 
 If you have any questions about the repo, open an issue or contact me directly at ${res.email}. You can find more of my work at [${res.github}](https://github.com/${res.github}).
 `
-        // Use fs module to create a new file with the fileName created above, and the README created at the const newReadMe as a content to this file.
+        // Use fs module to create a new README file with the const newReadMe as a content to this file.
         fs.writeFile("README.md", newReadMe, err => {err ? console.log(err) : console.log("Your ReadMe has been created.")})
     })
